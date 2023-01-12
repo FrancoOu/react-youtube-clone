@@ -6,11 +6,10 @@ import {demoThumbnailUrl, demoVideoUrl, demoVideoTitle, demoChannelUrl, demoChan
 
 // shows the basic information of video including title,
 function VideoCard({video:{id:{videoId},snippet}}) {
-    console.log(videoId,snippet)
     return (
-        videoId && (
+
             <Card sx={{
-                width:{ md:'320px', xs:'100%'},
+                width:{  xs:'100%', sm: '358px', md: '320px'},
                 boxShadow: 'none',
                 borderRadius: 'none'
             }}>
@@ -21,7 +20,7 @@ function VideoCard({video:{id:{videoId},snippet}}) {
                     {/* navigate to original YouTube video page*/}
                     {/*<a href={`https://www.youtube.com/watch?v=${videoId}`}>*/}
                     <CardMedia
-                        sx={{width: 358, height: 180}}
+                        sx={{width: {xs: '100%', sm: '358px', md: '320px'}, height: 180}}
                         alt={snippet?.title}
                         image={snippet?.thumbnails?.high?.url}/>
                     {/*</a>*/}
@@ -40,7 +39,7 @@ function VideoCard({video:{id:{videoId},snippet}}) {
                     </Link>
                 </CardContent>
             </Card>
-        )
+
     );
 }
 
