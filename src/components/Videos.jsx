@@ -8,10 +8,14 @@ function Videos({videos}) {
     return (
         <Stack direction='row' flexWrap='wrap' justifyContent='start' gap={2}>
             {videos.map((item,idx)=>(
-                <Box key={idx}>
-                    {item.id.videoId && <VideoCard video={item}/>}
-                    {/*{item.id.channelId && <ChannelCard channelDetail={item}/>}*/}
 
+                // TODO: to add playlist card.
+                // I don't want to show the playlist yet, so I added a condition here. Otherwise there will be some extra space between videos
+                !item.id.playlistId && <Box key={idx}>
+
+                    {/*undefined will be created if no id */}
+                    {item.id.videoId && <VideoCard video={item}/>}
+                    {item.id.channelId && <ChannelCard channelDetail={item}/>}
 
                 </Box>
             ))}
